@@ -36,6 +36,11 @@ class Client
     @api.apikey
   end
 
+  # @return [String] API endpoint
+  def endpoint
+    @api.endpoint
+  end
+
   # @return [String] HTTP status code of server returns
   def server_status
     @api.server_status

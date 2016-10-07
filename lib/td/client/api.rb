@@ -104,13 +104,17 @@ class API
 
     @http_proxy = opts[:http_proxy] || ENV['HTTP_PROXY']
     @headers = opts[:headers] || {}
-    @api = api_client("#{@ssl ? 'https' : 'http'}://#{@host}:#{@port}")
+    @endpoint = "#{@ssl ? 'https' : 'http'}://#{@host}:#{@port}"
+    @api = api_client(@endpoint)
   end
 
   # TODO error check & raise appropriate errors
 
   # @!attribute [r] apikey
   attr_reader :apikey
+
+  # @!attribute [r] endpoint
+  attr_reader :endpoint
 
   # @param [Hash] record
   # @param [IO] out

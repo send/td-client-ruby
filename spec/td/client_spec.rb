@@ -15,6 +15,12 @@ describe 'Command' do
     Client.authenticate('user', 'password')
   end
 
+  describe '#endpoint' do
+    it 'returns currnt endppoint' do
+      expect(client.endpoint).to eq 'http://api.treasure-data.com:80'
+    end
+  end
+
   describe '#job' do
     before do
       stub_api_request(:get, "/v3/job/list").to_return(:body => {'jobs' => raw_jobs}.to_json)
